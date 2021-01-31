@@ -13,28 +13,23 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [
     {
-      title: 'Anasayfa',
-      url: 'folder/Anasayfa',
+      title: 'Genel Durum Tablosu',
+      url: 'home',
       icon: 'homepage'
     },
     {
-      title: 'Aşı Durum',
-      url: '/folder/asigenel',
-      icon: 'vaccine'
-    },
-    {
       title: 'Genel Durum',
-      url: '/folder/Genel Durum',
+      url: 'general-case',
       icon: 'pandemia'
     },
     {
       title: 'Semptomplar',
-      url: '/folder/Semptomplar',
+      url: 'semptomp',
       icon: 'cough'
     },
     {
-      title: 'Trash',
-      url: '/folder/Trash',
+      title: 'Covid19 Haberler',
+      url: 'news',
       icon: 'trash'
     },
 
