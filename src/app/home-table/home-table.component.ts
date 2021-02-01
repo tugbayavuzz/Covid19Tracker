@@ -8,7 +8,22 @@ import { Component, OnInit } from '@angular/core';
 export class HomeTableComponent implements OnInit {
 
   constructor() { }
+  public appCards = [
+    {
+      title: 'VAKA SAYISI',
+      url: 'veriseti',
+    },
+    {
+      title: 'VEFAT SAYISI',
+      url: 'veriseti',
+    },
+    {
+      title: 'İYİLEŞEN SAYISI',
+      url: 'veriseti',
+    }
+  ];
 
   ngOnInit() {}
+
 
 }
