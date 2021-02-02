@@ -21,27 +21,28 @@ export class DataServicesService {
           rows.splice(0, 1);
           // console.log(rows);
           rows.forEach(row => {
-            const cols = row.split(/,([^"]+)/g);
+            const cols = row.split(/,(?=\s)/);
             const cs = {
-              date: cols[0],
-              tests: +cols[7],
-              cases: +cols[8],
-              patients: +cols[9],
-              critical: +cols[10],
-              pneumoniaPercent: +cols[11],
-              deaths: +cols[12],
-              recovered: +cols[13],
+              date: cols[10],
+              patients: cols[0],
+              cases: cols[8],
+              deaths: cols[2],
+              recovered: cols[4],
+              critical: cols[11],
+              pneumoniaPercent: cols[12],
+              tests: cols[9],
+
+
             };
             const temp: dataSummary = rows[cs.date];
             if (temp) {
-              temp.tests = cs.tests;
               temp.cases = cs.cases;
               temp.patients = cs.patients;
               temp.critical = cs.critical;
               temp.pneumoniaPercent = cs.pneumoniaPercent;
               temp.deaths = cs.deaths;
               temp.recovered = cs.recovered;
-
+              temp.tests = cs.tests;
               raw[cs.date] = cs;
             }
             else{

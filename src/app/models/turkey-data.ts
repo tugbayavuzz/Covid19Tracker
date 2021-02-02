@@ -1,12 +1,12 @@
 // tslint:disable-next-line:class-name
 export interface dataSummary{
-    date ?: string;
-    tests ?: number;
-    cases ?: number;
-    patients ?: number;
-    critical ?: number;
-    pneumoniaPercent ?: number;
-    deaths ?: number;
-    recovered ?: number;
+    date ?: number;
+    tests ?: string;
+    cases ?: string;
+    patients ?: string;
+    critical ?: string;
+    pneumoniaPercent ?: string;
+    deaths ?: string;
+    recovered ?: string;
 
 }
