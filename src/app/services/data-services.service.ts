@@ -8,7 +8,7 @@ import {dataSummary} from '../models/turkey-data';
 })
 export class DataServicesService {
 
-  private dailyDataUrl = 'https://raw.githubusercontent.com/ozanerturk/covid19-turkey-api/master/dataset/timeline.csv';
+  private dailyDataUrl = 'https://raw.githubusercontent.com/ozanerturk/covid19-turkey-api/master/dataset/timeline.json';
 
   constructor(private http: HttpClient) { }
 
@@ -21,7 +21,7 @@ export class DataServicesService {
           rows.splice(0, 1);
           // console.log(rows);
           rows.forEach(row => {
-            const cols = row.split(/,(?=\S)/);
+            const cols = row.split(/,((?: |\.)(?=\d)(?=[ .\(?<=\d)d]*))/);
             const cs = {
               date: cols[0],
               tests: +cols[7],
