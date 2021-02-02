@@ -8,7 +8,7 @@ import {dataSummary} from '../models/turkey-data';
 })
 export class DataServicesService {
 
-  private dailyDataUrl = 'https://raw.githubusercontent.com/ozanerturk/covid19-turkey-api/master/dataset/timeline.json';
+  private dailyDataUrl = 'https://raw.githubusercontent.com/ozanerturk/covid19-turkey-api/master/dataset/timeline.csv';
 
   constructor(private http: HttpClient) { }
 
