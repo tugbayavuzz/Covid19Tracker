@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DataServicesService} from '../services/data-services.service';
 
 @Component({
   selector: 'app-home-table',
@@ -7,23 +8,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeTableComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataServicesService) { }
   public appCards = [
     {
-      title: 'VAKA SAYISI',
-      url: 'veriseti',
+      title: 'Tarih',
+      url: 'tarih',
     },
     {
-      title: 'VEFAT SAYISI',
-      url: 'veriseti',
+      title: 'Test Sayısı',
+      url: 'test',
     },
     {
-      title: 'İYİLEŞEN SAYISI',
-      url: 'veriseti',
-    }
+      title: 'Vaka',
+      url: 'vaka',
+    },
+    {
+      title: 'İyileşen',
+      url: 'iyilesen',
+    },
+    {
+      title: 'Vefat',
+      url: 'vefat',
+    },
+    {
+      title: 'Ağır Hasta Sayısı',
+      url: 'kritil',
+    },
+    {
+      title: 'Zatüre Oranı',
+      url: 'zature',
+    },
+
   ];
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.dataService.getDailyData()
+        .subscribe({
+          next: (res) => {
+            console.log(res);
+
+      }
+    });
+  }
 
 
 }
