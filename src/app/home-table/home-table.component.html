@@ -4,7 +4,7 @@
 
     <ion-item lines="none">
         <ion-avatar slot="start">
-          <ion-icon src="src/assets/icon/svg/antibodies.svg"></ion-icon>
+         <!-- <ion-icon src="src/assets/icon/svg/antibodies.svg"></ion-icon> -->
         </ion-avatar>
         <ion-label>
             <ion-title>TÜRKİYE COVID-19 TABLOSU</ion-title>
@@ -15,16 +15,57 @@
 
     <ion-content class="ion-text-center">
         <ion-row>
-            <ion-col *ngFor="let item of appCards" >
+            <ion-col>
                 <ion-card>
-                    <ion-card-header>{{item.title}}</ion-card-header>
-                    <ion-card-title>{{item.url}}</ion-card-title>
+                    <ion-card-header>Test Sayısı</ion-card-header>
+                    <ion-card-title>{{tests}}</ion-card-title>
                 </ion-card>
             </ion-col>
 
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>Vaka Sayısı</ion-card-header>
+                    <ion-card-title>{{cases}}</ion-card-title>
+                </ion-card>
+            </ion-col>
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>İyileşen</ion-card-header>
+                    <ion-card-title>{{recovered}}</ion-card-title>
+                </ion-card>
+            </ion-col>
+
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>Vefat</ion-card-header>
+                    <ion-card-title>{{deaths}}</ion-card-title>
+                </ion-card>
+            </ion-col>
+
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>Ağır Hasta Sayısı </ion-card-header>
+                    <ion-card-title>{{critical}}</ion-card-title>
+                </ion-card>
+            </ion-col>
+
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>Zatürre Olasılığı</ion-card-header>
+                    <ion-card-title>{{pneumoniaPercent}}</ion-card-title>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <google-chart [data]="pieChart" width="900px" height="500px"></google-chart>
+            </ion-col>
 
         </ion-row>
+
     </ion-content>
+
+
 
 
 

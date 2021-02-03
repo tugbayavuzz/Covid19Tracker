@@ -1,5 +1,5 @@
 // tslint:disable-next-line:class-name
-export interface dataSummary{
+export interface DataSummary{
     date ?: string;
     tests ?: number;
     cases ?: number;
