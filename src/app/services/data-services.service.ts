@@ -12,27 +12,26 @@ export class DataServicesService {
 
   constructor(private http: HttpClient) { }
 
-  getDailyData(){
-    return this.http.get(this.dailyDataUrl, {responseType: 'text'}).pipe(
-        map(res => {
+
+  getDailyData() {
+    return this.http.get(this.dailyDataUrl, { responseType: 'text' }).pipe(
+        map((res) => {
           const data: dataSummary[] = [];
           const raw = {};
           const rows = res.split('\n');
           rows.splice(0, 1);
-          // console.log(rows);
-          rows.forEach(row => {
-            const cols = row.split(/,(?=\s)/);
+          rows.forEach((row) => {
+            // const cols = row.split(/,(?=\s)/);
+            const cols = row.split(',').map(item => item.replace(/^"(.*)"$/, '$1'));
             const cs = {
               date: cols[10],
-              patients: cols[0],
-              cases: cols[8],
-              deaths: cols[2],
-              recovered: cols[4],
-              critical: cols[11],
-              pneumoniaPercent: cols[12],
-              tests: cols[9],
-
-
+              patients: +cols[0],
+              cases: +cols[8],
+              deaths: +cols[2],
+              recovered: +cols[4],
+              critical: +cols[11],
+              pneumoniaPercent: +cols[12],
+              tests: +cols[9],
             };
             const temp: dataSummary = rows[cs.date];
             if (temp) {
@@ -44,14 +43,12 @@ export class DataServicesService {
               temp.recovered = cs.recovered;
               temp.tests = cs.tests;
               raw[cs.date] = cs;
-            }
-            else{
+            } else {
               raw[cs.date] = cs;
             }
-
           });
           console.log(raw);
-          return [];
+          return raw;
     })
     );
 
