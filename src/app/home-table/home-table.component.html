@@ -4,7 +4,7 @@
 
     <ion-item lines="none">
         <ion-avatar slot="start">
-         <!-- <ion-icon src="src/assets/icon/svg/antibodies.svg"></ion-icon> -->
+            <!-- <ion-icon src="src/assets/icon/svg/antibodies.svg"></ion-icon> -->
         </ion-avatar>
         <ion-label>
             <ion-title>TÜRKİYE COVID-19 TABLOSU</ion-title>
@@ -13,56 +13,66 @@
 </ion-header>
 
 
-    <ion-content class="ion-text-center">
-        <ion-row>
-            <ion-col>
-                <ion-card>
-                    <ion-card-header>Test Sayısı</ion-card-header>
-                    <ion-card-title>{{tests}}</ion-card-title>
-                </ion-card>
-            </ion-col>
+<ion-content class="ion-text-center">
+    <ion-card>
+        <ion-card-header>Bugün Açıklanan Veriler</ion-card-header>
+        <ion-card-title>{{currentDate | date:'dd-MM-yyyy'}}</ion-card-title>
+    </ion-card>
+    <ion-row>
+        <ion-col>
+            <ion-card>
+                <ion-card-header>Test Sayısı</ion-card-header>
+                <ion-card-title>{{tests}}</ion-card-title>
+            </ion-card>
+        </ion-col>
 
-            <ion-col>
-                <ion-card>
-                    <ion-card-header>Vaka Sayısı</ion-card-header>
-                    <ion-card-title>{{cases}}</ion-card-title>
-                </ion-card>
-            </ion-col>
-            <ion-col>
-                <ion-card>
-                    <ion-card-header>İyileşen</ion-card-header>
-                    <ion-card-title>{{recovered}}</ion-card-title>
-                </ion-card>
-            </ion-col>
+        <ion-col>
+            <ion-card>
+                <ion-card-header>Vaka Sayısı</ion-card-header>
+                <ion-card-title>{{cases}}</ion-card-title>
+            </ion-card>
+        </ion-col>
+        <ion-col>
+            <ion-card>
+                <ion-card-header>İyileşen</ion-card-header>
+                <ion-card-title>{{recovered}}</ion-card-title>
+            </ion-card>
+        </ion-col>
 
-            <ion-col>
-                <ion-card>
-                    <ion-card-header>Vefat</ion-card-header>
-                    <ion-card-title>{{deaths}}</ion-card-title>
-                </ion-card>
-            </ion-col>
+        <ion-col>
+            <ion-card>
+                <ion-card-header>Vefat</ion-card-header>
+                <ion-card-title>{{deaths}}</ion-card-title>
+            </ion-card>
+        </ion-col>
 
-            <ion-col>
-                <ion-card>
-                    <ion-card-header>Ağır Hasta Sayısı </ion-card-header>
-                    <ion-card-title>{{critical}}</ion-card-title>
-                </ion-card>
-            </ion-col>
+        <ion-col>
+            <ion-card>
+                <ion-card-header>Ağır Hasta Sayısı</ion-card-header>
+                <ion-card-title>{{critical}}</ion-card-title>
+            </ion-card>
+        </ion-col>
 
-            <ion-col>
-                <ion-card>
-                    <ion-card-header>Zatürre Olasılığı</ion-card-header>
-                    <ion-card-title>{{pneumoniaPercent}}</ion-card-title>
-                </ion-card>
-            </ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col>
-                <google-chart [type]='chart.PieChart' [data]='datatable'  [options]='chart.options'></google-chart>
-            </ion-col>
+        <ion-col>
+            <ion-card>
+                <ion-card-header>Zatürre Olasılığı</ion-card-header>
+                <ion-card-title>{{pneumoniaPercent}}</ion-card-title>
+            </ion-card>
+        </ion-col>
+        <ion-col>
+            <ion-card>
+                <ion-card-header>Hasta</ion-card-header>
+                <ion-card-title>{{patients}}</ion-card-title>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+    <ion-col>
+        <google-chart [type]='chart.PieChart' [data]='this.weeklyTable' [options]='chart.options'></google-chart>
+    </ion-col>
+</ion-content>
 
-        </ion-row>
-    </ion-content>
+
+
 
 
 

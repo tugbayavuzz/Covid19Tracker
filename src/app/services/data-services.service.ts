@@ -59,6 +59,7 @@ export class DataServicesService {
             };
             const temp: DataSummary = rows[cs.date];
             if (temp) {
+              // @ts-ignore
               temp.cases = cs.cases + temp.cases;
               temp.patients = cs.patients + temp.patients;
               temp.critical = cs.critical + temp.critical;

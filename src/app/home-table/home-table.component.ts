@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataServicesService} from '../services/data-services.service';
 import {DataSummary} from '../models/turkeydata';
+import {formatDate} from '@angular/common';
 
 
 @Component({
@@ -8,7 +9,9 @@ import {DataSummary} from '../models/turkeydata';
     templateUrl: './home-table.component.html',
     styleUrls: ['./home-table.component.scss'],
 })
+
 export class HomeTableComponent implements OnInit {
+    currentDate = new Date();
     patients = 0;
     cases = 0;
     deaths = 0;
@@ -18,18 +21,26 @@ export class HomeTableComponent implements OnInit {
     tests = 0;
     dataSummaries: DataSummary[];
     datatable = [];
-    loading = true;
+    weeklyTable = [];
     chart = {
         PieChart: 'PieChart',
-        height: 500,
         options: {
+            height: 500,
+            width: 1200,
+            is3D: true,
+            title: 'Zamana Göre Hasta Sayısı',
+            titleTextStyle: {
+                color: 'red',
+                fontName: 'Arial',
+                fontSize: 30,
+            },
+            legend: {position: 'bottom'},
             animation: {
-                duration: 1000,
+                duration: 10,
                 easing: 'out',
             },
         },
     };
-
 
     constructor(private dataService: DataServicesService) {
     }
@@ -55,14 +66,20 @@ export class HomeTableComponent implements OnInit {
                 }
             });
     }
-
-
     initChart() {
         this.datatable = [];
+        this.weeklyTable = [];
+
         this.dataSummaries.forEach(cs => {
-            this.datatable.push([cs.date, cs.patients]);
-            {}
+
+            this.datatable.push([cs.date, cs.patients, cs.tests]);
+
         });
-        console.log(this.datatable);
+        // son 7 günün :) chartta gösterilmesi ama çalışmıyor .ÇALIŞTI.
+        for (let i = 0 ; i < 7; i++) {
+            this.weeklyTable[i] = this.datatable[this.datatable.length - 1];
+            this.datatable.length -= 1;
+        }
+        console.log(this.weeklyTable);
     }
 }

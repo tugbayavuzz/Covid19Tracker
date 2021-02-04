@@ -8,26 +8,38 @@ ion-header {
   }
 
   ion-item {
-    ion-title{
+    ion-title {
       font-weight: 500;
       font-size: 25px;
     }
   }
 }
-ion-content{
+
+ion-content {
   --background: #e6ebff;
-  ion-card{
-    height: 100%;
-    border-radius: 14px;
-    opacity: 1;
-    box-shadow: none;
 
-
+  ion-col {
+    google-chart {
+      margin: 0px 50px 0px 80px;
+    }
 
   }
+
+  ion-card {
+    border-radius: 14px;
+    box-shadow: none;
+  }
+
+  ion-row {
+    ion-card {
+      height: 100%;
+      border-radius: 14px;
+      opacity: 20;
+      box-shadow: none;
+    }
+  }
+
 }
-
-
 
 
 /*
