@@ -5,7 +5,7 @@ import { HomePage } from './home.page';
 import {HomeTableComponent} from '../home-table/home-table.component';
 import {IonicModule} from '@ionic/angular';
 import {CommonModule} from '@angular/common';
-import {Ng2GoogleChartsModule} from 'ng2-google-charts';
+import {GoogleChartsModule} from 'angular-google-charts';
 
 const routes: Routes = [
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes), IonicModule, CommonModule, Ng2GoogleChartsModule],
+    imports: [RouterModule.forChild(routes), IonicModule, CommonModule,  GoogleChartsModule],
   exports: [RouterModule, HomeTableComponent],
   declarations: [
     HomeTableComponent

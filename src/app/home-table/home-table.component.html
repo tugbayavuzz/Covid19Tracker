@@ -58,11 +58,10 @@
         </ion-row>
         <ion-row>
             <ion-col>
-                <google-chart [data]="pieChart" width="900px" height="500px"></google-chart>
+                <google-chart [type]='chart.PieChart' [data]='datatable'  [options]='chart.options'></google-chart>
             </ion-col>
 
         </ion-row>
-
     </ion-content>
 
 

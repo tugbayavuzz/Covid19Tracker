@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataServicesService} from '../services/data-services.service';
 import {DataSummary} from '../models/turkeydata';
-import {GoogleChartInterface} from 'ng2-google-charts';
+
 
 @Component({
     selector: 'app-home-table',
@@ -16,40 +16,22 @@ export class HomeTableComponent implements OnInit {
     critical = 0;
     pneumoniaPercent = 0;
     tests = 0;
-    dataSummary: DataSummary[];
-    pieChart: GoogleChartInterface = {
-        chartType: 'pieChart'
+    dataSummaries: DataSummary[];
+    datatable = [];
+    loading = true;
+    chart = {
+        PieChart: 'PieChart',
+        height: 500,
+        options: {
+            animation: {
+                duration: 1000,
+                easing: 'out',
+            },
+        },
     };
 
+
     constructor(private dataService: DataServicesService) {
-    }
-
-    initCharts() {
-
-        const datatable = [];
-        datatable.push(['Date', 'Cases']);
-        this.dataSummary.forEach(cs => {
-            // tslint:disable-next-line:no-unused-expression
-            datatable.push[
-                // tslint:disable-next-line:no-unused-expression
-                cs.date, cs.tests, cs.deaths, cs.cases
-                ];
-        });
-        console.log(datatable);
-
-        this.pieChart = {
-            chartType: 'PieChart',
-            dataTable: [
-                ['Task', 'Hours per Day'],
-                ['Work',     11],
-                ['Eat',      2],
-                ['Commute',  2],
-                ['Watch TV', 2],
-                ['Sleep',    7]
-            ],
-        };
-
-
     }
 
     ngOnInit() {
@@ -57,7 +39,7 @@ export class HomeTableComponent implements OnInit {
             .subscribe({
                 next: (res) => {
                     console.log(res);
-                    this.dataSummary = res;
+                    this.dataSummaries = res;
                     res.forEach(cs => {
                         if (!Number.isNaN(cs.date)) {
                             this.patients = cs.patients;
@@ -69,9 +51,18 @@ export class HomeTableComponent implements OnInit {
                             this.tests = cs.tests;
                         }
                     });
-                    this.initCharts();
+                    this.initChart();
                 }
             });
     }
 
+
+    initChart() {
+        this.datatable = [];
+        this.dataSummaries.forEach(cs => {
+            this.datatable.push([cs.date, cs.patients]);
+            {}
+        });
+        console.log(this.datatable);
+    }
 }

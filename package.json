@@ -24,8 +24,8 @@
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^5.0.0",
     "@ng-bootstrap/ng-bootstrap": "^9.0.2",
+    "angular-google-charts": "^2.0.1",
     "bootstrap": "^4.6.0",
-    "ng2-google-charts": "^6.1.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
