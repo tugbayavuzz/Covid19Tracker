@@ -1,15 +1,17 @@
+import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {map} from 'rxjs/operators';
-import {DataSummary} from '../models/turkeydata';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { DataSummary } from '../models/turkeydata';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataServicesService {
-
-  private dailyDataUrl = 'https://raw.githubusercontent.com/ozanerturk/covid19-turkey-api/master/dataset/timeline.csv';
- /* month;
+  private dailyDataUrl = environment.apiCsvUrl;
+  private dailyDataJsonUrl = environment.apiJsonUrl;
+  /* month;
   date;
   year;
 
@@ -37,6 +39,7 @@ export class DataServicesService {
 
 */
   constructor(private http: HttpClient) {}
+
   getDailyData() {
     return this.http.get(this.dailyDataUrl, { responseType: 'text' }).pipe(
         map((res) => {
@@ -46,7 +49,9 @@ export class DataServicesService {
           rows.splice(0, 1);
           rows.forEach((row) => {
             // const cols = row.split(/,(?=\s)/);
-            const cols = row.split(',').map(item => item.replace(/^"(.*)"$/, '$1'));
+            const cols = row
+                .split(',')
+                .map((item) => item.replace(/^"(.*)"$/, '$1'));
             const cs = {
               date: cols[10],
               patients: +cols[0],
@@ -71,12 +76,27 @@ export class DataServicesService {
             } else {
               raw[cs.date] = cs;
             }
-
           });
           return Object.values(raw) as DataSummary[];
-    })
+        })
     );
-
   }
 
+  getDailyJsonData(): Observable<DataSummary[]> {
+    return this.http.get(this.dailyDataJsonUrl).pipe(
+        map((res) => {
+          return (Object.values(res) as DataSummary[]).map((item) => {
+            return {
+              ...item,
+              deaths: +item.deaths,
+              patients: +item.patients,
+              recovered: +item.recovered,
+              tests: +item.tests,
+              critical: +item.critical,
+              cases: item.cases ? +item.cases : 0,
+            };
+          });
+        })
+    );
+  }
 }

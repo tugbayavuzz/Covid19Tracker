@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiJsonUrl:
+      'https://raw.githubusercontent.com/ozanerturk/covid19-turkey-api/master/dataset/timeline.json',
+  apiCsvUrl:
+      'https://raw.githubusercontent.com/ozanerturk/covid19-turkey-api/master/dataset/timeline.csv',
 };
 
 /*
