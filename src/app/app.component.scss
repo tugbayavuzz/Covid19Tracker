@@ -2,6 +2,11 @@ ion-menu ion-content {
   --background: var(--ion-item-background, var(--ion-background-color, #fff));
 
 }
+.menubar{
+  width: 250px;
+  border-inline-color: #fff;
+
+}
 
 ion-menu.md ion-content {
   --padding-start: 8px;

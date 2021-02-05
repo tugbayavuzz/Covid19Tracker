@@ -1,10 +1,9 @@
 <ion-app>
   <ion-split-pane contentId="main">
-    <ion-menu contentId="main" type="overlay">
+    <ion-menu contentId="main" type="overlay" class="menubar">
       <ion-content>
         <ion-list id="inbox-list">
           <ion-list-header>Covid-19 İstatistik</ion-list-header>
-
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
