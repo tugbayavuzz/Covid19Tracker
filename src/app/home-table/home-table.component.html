@@ -1,11 +1,7 @@
 <ion-header class="ion-no-border">
     <ion-toolbar>
     </ion-toolbar>
-
     <ion-item lines="none">
-        <ion-avatar slot="start">
-            <!-- <ion-icon src="src/assets/icon/svg/antibodies.svg"></ion-icon> -->
-        </ion-avatar>
         <ion-label>
             <ion-title>TÜRKİYE COVID-19 TABLOSU</ion-title>
         </ion-label>
@@ -30,6 +26,12 @@
             <ion-card>
                 <ion-card-header>Vaka Sayısı</ion-card-header>
                 <ion-card-title>{{cases}}</ion-card-title>
+            </ion-card>
+        </ion-col>
+        <ion-col>
+            <ion-card>
+                <ion-card-header>Hasta Sayısı</ion-card-header>
+                <ion-card-title>{{patients}}</ion-card-title>
             </ion-card>
         </ion-col>
         <ion-col>
@@ -59,16 +61,22 @@
                 <ion-card-title>{{pneumoniaPercent}}</ion-card-title>
             </ion-card>
         </ion-col>
-        <ion-col>
-            <ion-card>
-                <ion-card-header>Hasta</ion-card-header>
-                <ion-card-title>{{patients}}</ion-card-title>
-            </ion-card>
-        </ion-col>
+
     </ion-row>
-    <ion-col>
-        <google-chart [type]='chart.PieChart' [data]='this.weeklyTable' [options]='chart.options'></google-chart>
-    </ion-col>
+    <ion-slides>
+        <ion-slide>
+            <ion-col>
+                <google-chart [type]='chart.PieChart' [data]='this.weeklyTable'
+                              [options]='chart.options'></google-chart>
+            </ion-col>
+        </ion-slide>
+        <ion-slide>
+            <ion-col>
+                <google-chart [type]='chart.AreaChart' [data]='this.weeklyTable'
+                              [options]='chart.options1'></google-chart>
+            </ion-col>
+        </ion-slide>
+    </ion-slides>
 </ion-content>
 
 

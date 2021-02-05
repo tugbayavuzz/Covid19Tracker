@@ -38,6 +38,23 @@ export class HomeTableComponent implements OnInit {
                 easing: 'out',
             },
         },
+        AreaChart: 'AreaChart',
+        options1: {
+            height: 500,
+            width: 1200,
+            is3D: true,
+            title: 'Zamana Göre Hasta Sayısı',
+            titleTextStyle: {
+                color: 'red',
+                fontName: 'Arial',
+                fontSize: 30,
+            },
+            legend: { position: 'bottom' },
+            animation: {
+                duration: 10,
+                easing: 'out',
+            },
+        },
     };
 
     constructor(private dataService: DataServicesService) {}

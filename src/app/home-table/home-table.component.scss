@@ -11,23 +11,39 @@ ion-header {
     ion-title {
       font-weight: 500;
       font-size: 25px;
+      text-align: center;
     }
   }
 }
 
 ion-content {
   --background: #e6ebff;
+  ion-slides{
+    ion-slide{
+      ion-col {
+        margin: 20px 50px 20px 80px;
+        google-chart {
+          margin: 0px 50px 0px 80px;
+          //box-shadow: 10px 10px 10px 10px #ddbcf4;
+        }
 
-  ion-col {
-    google-chart {
-      margin: 0px 50px 0px 80px;
+      }
     }
-
   }
 
-  ion-card {
+
+ion-card {
     border-radius: 14px;
+    opacity: 20;
     box-shadow: none;
+
+    ion-card-header {
+      color: #7974ff;
+      font-size: 20px;
+      ion-card-title {
+        color: #1a1a1a;
+      }
+    }
   }
 
   ion-row {
@@ -40,7 +56,6 @@ ion-content {
   }
 
 }
-
 
 /*
 .topNav {

@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Covid19 Haberler',
       url: 'news',
-      icon: 'trash'
+      icon: 'news'
     },
 
   ];
