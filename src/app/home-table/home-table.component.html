@@ -1,11 +1,13 @@
 <ion-header class="ion-no-border">
     <ion-toolbar>
+        <ion-item lines="none">
+            <ion-card>
+                <ion-card-title>TÜRKİYE COVID-19 TABLOSU</ion-card-title>
+            </ion-card>
+            <ion-label>Dark Mod</ion-label>
+            <ion-toggle slot="end" (ionChange)="onToggleColorTheme($event)"></ion-toggle>
+        </ion-item>
     </ion-toolbar>
-    <ion-item lines="none">
-        <ion-label>
-            <ion-title>TÜRKİYE COVID-19 TABLOSU</ion-title>
-        </ion-label>
-    </ion-item>
 </ion-header>
 
 
@@ -65,15 +67,16 @@
     </ion-row>
     <ion-slides pager="1">
         <ion-slide>
+            <button (click)="initChart()">
+                <ion-icon name="arrow-forward"></ion-icon>
+            </button>
             <ion-col>
-                <google-chart [type]='chart.PieChart' [data]='this.weeklyTable'
-                              [options]='chart.options'></google-chart>
+                <google-chart [type]='chart.PieChart' [data]='this.weeklyTable' [options]='chart.options'></google-chart>
             </ion-col>
         </ion-slide>
         <ion-slide>
             <ion-col>
-                <google-chart [type]='chart.AreaChart' [data]='this.weeklyTable'
-                              [options]='chart.options1'></google-chart>
+                <google-chart [type]='chart.AreaChart' [data]='this.weeklyTable' [options]='chart.options1'></google-chart>
             </ion-col>
         </ion-slide>
     </ion-slides>

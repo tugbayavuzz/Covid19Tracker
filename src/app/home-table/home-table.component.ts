@@ -51,7 +51,7 @@ export class HomeTableComponent implements OnInit {
             },
             legend: { position: 'bottom' },
             animation: {
-                duration: 10,
+                duration: 1000,
                 easing: 'out',
             },
         },
@@ -59,6 +59,17 @@ export class HomeTableComponent implements OnInit {
 
     constructor(private dataService: DataServicesService) {}
 
+    // dark mode
+    onToggleColorTheme(event){
+        console.log(event.detail.checked);
+        if (event.detail.checked){
+            document.body.setAttribute('color-theme', 'dark');
+        }
+        else {
+            document.body.setAttribute('color-theme', 'light');
+        }
+
+    }
     ngOnInit() {
         this.dataService.getDailyJsonData().subscribe({
             next: (res) => {

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { GeneralCasePageRoutingModule } from './general-case-routing.module';
 
 import { GeneralCasePage } from './general-case.page';
+import {GeneralCaseTableComponent} from '../general-case-table/general-case-table.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { GeneralCasePage } from './general-case.page';
     IonicModule,
     GeneralCasePageRoutingModule
   ],
-  declarations: [GeneralCasePage]
+    declarations: [GeneralCasePage, GeneralCaseTableComponent]
 })
 export class GeneralCasePageModule {}

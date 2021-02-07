@@ -1,0 +1,17 @@
+ion-header {
+
+  ion-toolbar, ion-item {
+    --background: #f9f5fc;
+    background: #f9f5fc;
+    padding: 0 10px;
+
+  }
+
+  ion-item {
+    ion-title {
+      font-weight: 500;
+      font-size: 25px;
+      text-align: center;
+    }
+  }
+}

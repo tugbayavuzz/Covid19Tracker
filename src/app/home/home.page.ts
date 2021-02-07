@@ -9,7 +9,6 @@ import {DataServicesService} from '../services/data-services.service';
 export class HomePage implements OnInit {
 
   constructor() { }
-
   ngOnInit() {
 
   }
