@@ -58,8 +58,7 @@ export class HomeTableComponent implements OnInit {
     };
 
     constructor(private dataService: DataServicesService) {}
-
-    // dark mode
+/* // dark mode
     onToggleColorTheme(event){
         console.log(event.detail.checked);
         if (event.detail.checked){
@@ -70,6 +69,7 @@ export class HomeTableComponent implements OnInit {
         }
 
     }
+*/
     ngOnInit() {
         this.dataService.getDailyJsonData().subscribe({
             next: (res) => {

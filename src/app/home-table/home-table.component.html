@@ -1,18 +1,11 @@
-<ion-header class="ion-no-border">
-    <ion-toolbar>
-        <ion-item lines="none">
-            <ion-card>
-                <ion-card-title>TÜRKİYE COVID-19 TABLOSU</ion-card-title>
-            </ion-card>
-            <ion-label>Dark Mod</ion-label>
-            <ion-toggle slot="end" (ionChange)="onToggleColorTheme($event)"></ion-toggle>
-        </ion-item>
-    </ion-toolbar>
-</ion-header>
-
-
-<ion-content class="ion-text-center">
+<ion-content class="ion-text-center" >
+    <!--<ion-item>
+        <ion-toggle slot="end" (ionChange)="onToggleColorTheme($event)"></ion-toggle>
+    </ion-item> -->
     <ion-card>
+        <ion-card-title>TÜRKİYE COVID-19 TABLOSU</ion-card-title>
+    </ion-card>
+    <ion-card class="baslik">
         <ion-card-header>Bugün Açıklanan Veriler</ion-card-header>
         <ion-card-title>{{currentDate | date:'dd-MM-yyyy'}}</ion-card-title>
     </ion-card>
@@ -23,7 +16,6 @@
                 <ion-card-title>{{tests}}</ion-card-title>
             </ion-card>
         </ion-col>
-
         <ion-col>
             <ion-card>
                 <ion-card-header>Vaka Sayısı</ion-card-header>
@@ -42,14 +34,12 @@
                 <ion-card-title>{{recovered}}</ion-card-title>
             </ion-card>
         </ion-col>
-
         <ion-col>
             <ion-card>
                 <ion-card-header>Vefat</ion-card-header>
                 <ion-card-title>{{deaths}}</ion-card-title>
             </ion-card>
         </ion-col>
-
         <ion-col>
             <ion-card>
                 <ion-card-header>Ağır Hasta Sayısı</ion-card-header>
@@ -67,16 +57,15 @@
     </ion-row>
     <ion-slides pager="1">
         <ion-slide>
-            <button (click)="initChart()">
-                <ion-icon name="arrow-forward"></ion-icon>
-            </button>
             <ion-col>
-                <google-chart [type]='chart.PieChart' [data]='this.weeklyTable' [options]='chart.options'></google-chart>
+                <google-chart [type]='chart.PieChart' [data]='this.weeklyTable'
+                              [options]='chart.options'></google-chart>
             </ion-col>
         </ion-slide>
         <ion-slide>
             <ion-col>
-                <google-chart [type]='chart.AreaChart' [data]='this.weeklyTable' [options]='chart.options1'></google-chart>
+                <google-chart [type]='chart.AreaChart' [data]='this.weeklyTable'
+                              [options]='chart.options1'></google-chart>
             </ion-col>
         </ion-slide>
     </ion-slides>

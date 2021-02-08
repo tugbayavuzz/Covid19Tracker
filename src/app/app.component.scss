@@ -1,14 +1,20 @@
-ion-menu ion-content {
-  --background: var(--ion-item-background, var(--ion-background-color, #fff));
+ion-menu ion-card {
+  --background: linear-gradient(180deg, rgba(188, 174, 238, 1) 44%, rgba(252, 236, 255, 1) 80%);
+  border-radius: 14px;
+  box-shadow: 0 1px 10px rgb(188, 174, 238);
+  height: 60%;
+  --padding-start: 8px;
+  --padding-end: 8px;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
 
 }
-.menubar{
+
+.menubar {
   width: 250px;
-  border-inline-color: #fff;
-
-}
-.listBar{
-  border-inline-color: #fff;
+  background-color: #bcaeee;
+  --background: linear-gradient(180deg, rgba(188, 174, 238, 1) 44%, rgba(252, 236, 255, 1) 80%);
+  box-shadow: 0 1px 10px rgb(188, 174, 238);
 
 }
 
