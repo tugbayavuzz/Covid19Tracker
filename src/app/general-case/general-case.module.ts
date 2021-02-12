@@ -8,14 +8,16 @@ import { GeneralCasePageRoutingModule } from './general-case-routing.module';
 
 import { GeneralCasePage } from './general-case.page';
 import {GeneralCaseTableComponent} from '../general-case-table/general-case-table.component';
+import {GoogleMapsModule} from '@angular/google-maps';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    GeneralCasePageRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        GeneralCasePageRoutingModule,
+        GoogleMapsModule
+    ],
     declarations: [GeneralCasePage, GeneralCaseTableComponent]
 })
 export class GeneralCasePageModule {}

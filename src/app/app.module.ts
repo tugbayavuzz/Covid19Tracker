@@ -11,6 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule} from '@angular/common/http';
 import { GoogleChartsModule } from 'angular-google-charts';
 
+import {GoogleMapsModule} from '@angular/google-maps';
+
+
 
 
 @NgModule({
@@ -22,6 +25,7 @@ import { GoogleChartsModule } from 'angular-google-charts';
     AppRoutingModule,
     HttpClientModule,
     GoogleChartsModule,
+    GoogleMapsModule
   ],
   providers: [
     StatusBar,

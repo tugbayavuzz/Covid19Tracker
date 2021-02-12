@@ -23,12 +23,16 @@ export class HomeTableComponent implements OnInit {
     chart = {
         PieChart: 'PieChart',
         options: {
+            vAxis: {
+                title: 'Popularity',
+                direction: '-1'
+            },
             height: 500,
             width: 1200,
             is3D: true,
-            title: 'Zamana Göre Hasta Sayısı',
+            title: 'Zamana Göre Vaka Sayısı',
             titleTextStyle: {
-                color: 'red',
+                color: 'black',
                 fontName: 'Arial',
                 fontSize: 30,
             },
@@ -43,9 +47,9 @@ export class HomeTableComponent implements OnInit {
             height: 500,
             width: 1200,
             is3D: true,
-            title: 'Zamana Göre Hasta Sayısı',
+            title: 'Zamana Göre Vaka Sayısı',
             titleTextStyle: {
-                color: 'red',
+                color: 'black',
                 fontName: 'Arial',
                 fontSize: 30,
             },
@@ -113,7 +117,7 @@ export class HomeTableComponent implements OnInit {
         this.weeklyTable = [];
 
         this.dataSummaries.forEach((cs) => {
-            this.datatable.push([cs.date, cs.patients, cs.tests]);
+            this.datatable.push([cs.date, cs.cases]);
         });
         // son 7 günün :) chartta gösterilmesi ama çalışmıyor .ÇALIŞTI.
         for (let i = 0; i < 7; i++) {
